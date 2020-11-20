@@ -19,10 +19,9 @@ public class Read {
 	            respuesta=sc.nextLine();
 
 	            String linea="";
-	            boolean encontrado = false;
 	            int contRepetidas =0;
-	            String lineasBus = "";
-	            String numLineas = "";
+	            StringBuilder lineasBus = new StringBuilder();
+	            StringBuilder numLineas = new StringBuilder();
 	            String palabraBuscada = respuesta;
 	            int cont_linea=0;
 	            
@@ -34,8 +33,8 @@ public class Read {
 	                while (st.hasMoreTokens()) {
 	                    if(st.nextToken().equalsIgnoreCase(respuesta)) {
 	                    	contRepetidas=contRepetidas+1;
-	                    	numLineas = cont_linea +", "+ numLineas;
-	                    	lineasBus = lineasBus +"Nro de Linea:"+ cont_linea +" Contenido Linea: "+linea;
+	                    	numLineas =numLineas.append(cont_linea +","+numLineas);
+	                    	lineasBus = lineasBus.append("Nro de Linea:"+ cont_linea +" Contenido Linea: "+linea) ;
 	                    }
 	                }
 	            	
@@ -46,8 +45,8 @@ public class Read {
 	                respuesta=sc.nextLine();
 	                System.out.println(" palabra Buscada " + palabraBuscada);
                     System.out.println("veces que se repite la palabra " + contRepetidas);
-                    System.out.println("lineas encontradas " + lineasBus);
-                    System.out.println("Nro de lieneas encontradas " + numLineas);
+                    System.out.println("lineas encontradas " + lineasBus.toString());
+                    System.out.println("Nro de lieneas encontradas " + numLineas.toString());
 	        }while(respuesta.equalsIgnoreCase("si"));
 	    } catch (IOException e) {
 
